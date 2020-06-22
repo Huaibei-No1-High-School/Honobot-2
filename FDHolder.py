@@ -10,10 +10,8 @@ class FDHolder(HApp):
     FDList: List[FD] = dict()
 
     def __init__(self):
-        HApp.white = True
+        HApp.white = False
         HApp.whitelist = [
-            341475083,
-            776324219,
         ]
 
     async def recv(self, app: Mirai, event: GroupMessage):
