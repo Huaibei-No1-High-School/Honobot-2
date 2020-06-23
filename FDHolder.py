@@ -21,7 +21,7 @@ class FDHolder(HApp):
         if not event.sender.group.id in self.FDList:
             print("Not")
             self.FDList[event.sender.group.id] = FD()
-
+        print(event.sender.group.id,self.FDList[event.sender.group.id].la,id(self.FDList[event.sender.group.id].la))
         await self.FDList[event.sender.group.id].recv(app, event)
 
     pass

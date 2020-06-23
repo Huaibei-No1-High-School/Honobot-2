@@ -2,6 +2,7 @@ from mirai import *
 import asyncio
 
 from FDHolder import FDHolder
+from KWD import KWD
 
 qq = 3185672511  # 字段 qq 的值
 authKey = '123456987'  # 字段 authKey 的值
@@ -22,6 +23,7 @@ async def event_gm(app: Mirai, event: GroupMessage):
 
 if __name__ == "__main__":
     AppList.append(FDHolder())
+    AppList.append(KWD())
     miraibot.run()
 
 
