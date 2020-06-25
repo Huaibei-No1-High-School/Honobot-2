@@ -8,8 +8,8 @@ from HApp import HApp
 class Whois(HApp):
     def __init__(self):
         self.li = []
-        HApp.white = True
-        HApp.whitelist = [
+        self.white = True
+        self.whitelist = [
             776324219,
             341475083,
         ]
