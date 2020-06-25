@@ -10,7 +10,7 @@ class Whois(HApp):
         self.li = []
         HApp.white = True
         HApp.whitelist = [
-            #776324219,
+            776324219,
             341475083,
         ]
         self.li.append([[Plain(text="谷梦龙")],1919810])
