@@ -4,11 +4,12 @@ from HApp import HApp
 
 
 class KWD(HApp):
-    HApp.white = True;
-    HApp.whitelist = [
-        776324219,
-        341475083,
-    ]
+    def __init__(self):
+        self.white = True
+        self.whitelist = [
+            776324219,
+            341475083,
+        ]
     async def recv(self, app: Mirai, event: GroupMessage):
         if HApp.isblocked(self,event.sender.group.id):
             return
