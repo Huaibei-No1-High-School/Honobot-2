@@ -25,4 +25,18 @@ class KWD(HApp):
                 At(target=3504879459),
                 At(target=764806602),
             ])
+        print(event.messageChain)
+        if "?" in str or "？" in str or "¿" in str or "❓" in str:
+            try:
+                await app.mute(event.sender.group, event.sender.id, 60)
+                if "?" in str:
+                    await app.sendGroupMessage(event.sender.group,[Plain(text="?"+"个b")])
+                if "？" in str:
+                    await app.sendGroupMessage(event.sender.group, [Plain(text="？" + "个b")])
+                if "¿" in str:
+                    await app.sendGroupMessage(event.sender.group, [Plain(text="¿" + "个b")])
+                if "❓" in str:
+                    await app.sendGroupMessage(event.sender.group, [Plain(text="❓" + "个b")])
+            except:
+                pass
     pass
