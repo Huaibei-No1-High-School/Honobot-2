@@ -26,7 +26,7 @@ class KWD(HApp):
                 At(target=764806602),
             ])
         print(event.messageChain)
-        if "?" in str or "？" in str or "¿" in str or "❓" in str:
+        if "?" in str or "？" in str or "¿" in str or "❓" in str :
             try:
                 await app.mute(event.sender.group, event.sender.id, 60)
                 if "?" in str:
