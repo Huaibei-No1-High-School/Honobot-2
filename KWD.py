@@ -1,4 +1,5 @@
 from mirai import *
+from myemail import email
 
 from HApp import HApp
 
@@ -24,6 +25,11 @@ class KWD(HApp):
                 At(target=78497388),
                 At(target=3504879459),
                 At(target=764806602),
+            ])
+        if "让国歌堕入黑暗" in str:
+            email()
+            await app.sendGroupMessage(event.sender.group, [
+                Plain("关闭 星空凛的台灯 成功!")
             ])
         print(event.messageChain)
         if "?" in str or "？" in str or "¿" in str or "❓" in str :
