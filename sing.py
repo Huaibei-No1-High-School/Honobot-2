@@ -6,6 +6,7 @@ from qqmusic import *
 
 class Sing(HApp):
     locked = False
+    stopsignal = False
     def __init__(self):
         self.white = True
         self.whitelist = [
@@ -16,6 +17,13 @@ class Sing(HApp):
         if HApp.isblocked(self,event.sender.group.id):
             return
         str = event.messageChain.toString()
+        if str[0:5] == "果果别唱了":
+            await app.sendGroupMessage(event.sender.group, [
+                Plain('👴不唱了')
+            ])
+            self.stopsignal = True
+            return
+
         if str[0:4] != "果果唱歌":
             return
         if self.locked == True:
@@ -67,6 +75,9 @@ class Sing(HApp):
             print(tlrc[i].split(']')[1])
             if tlrc[i].split(']')[1] == "":
                 continue
+            if self.stopsignal == True:
+                self.stopsignal = False
+                break
             await app.sendGroupMessage(event.sender.group, [
                 Plain(tlrc[i].split(']')[1])
             ])
