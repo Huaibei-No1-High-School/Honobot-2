@@ -27,7 +27,7 @@ class KWD(HApp):
                 At(target=764806602),
             ])
         if "让国歌堕入黑暗" in str:
-            email()
+            #email()
             await app.sendGroupMessage(event.sender.group, [
                 Plain("关闭 星空凛的台灯 成功!")
             ])

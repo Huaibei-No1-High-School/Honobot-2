@@ -3,6 +3,7 @@ import asyncio
 
 from FDHolder import FDHolder
 from KWD import KWD
+from sing import Sing
 from whois import Whois
 
 qq = 3185672511  # 字段 qq 的值
@@ -26,6 +27,7 @@ if __name__ == "__main__":
     AppList.append(FDHolder())
     AppList.append(KWD())
     AppList.append(Whois())
+    AppList.append(Sing())
     miraibot.run()
 
 

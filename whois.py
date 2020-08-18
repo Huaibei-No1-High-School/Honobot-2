@@ -75,5 +75,6 @@ class Whois(HApp):
                 nmc.append(msg)
         
         self.li.append([nmc,event.sender.id])
+        print()
         await app.sendGroupMessage(event.sender.group,nmsg)
 
