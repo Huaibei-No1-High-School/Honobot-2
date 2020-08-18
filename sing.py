@@ -17,27 +17,22 @@ class Sing(HApp):
         if HApp.isblocked(self,event.sender.group.id):
             return
         str = event.messageChain.toString()
-        if str[0:5] == "果果别唱了":
-            await app.sendGroupMessage(event.sender.group, [
-                Plain('👴不唱了')
-            ])
-            self.stopsignal = True
-            return
 
         if str[0:4] != "果果唱歌":
             return
-        if self.locked == True:
+        if Sing.locked == True:
             await app.sendGroupMessage(event.sender.group, [
                 Plain("还没唱完来 等我唱完")
             ])
             return
-        self.locked = True
+        Sing.locked = True
         name = str[4:]
         _,mid = qqMusicMain(name)
         print(mid)
-        await self.SingSong(mid[0],event,app)
+        await Sing.SingSong(mid[0],event,app)
 
-    async def SingSong(self,songmid,event: GroupMessage,app: Mirai):
+    @staticmethod
+    async def SingSong(songmid,event: GroupMessage,app: Mirai):
         headers = {
             'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',
             'origin': 'https://y.qq.com',
@@ -75,10 +70,10 @@ class Sing(HApp):
             print(tlrc[i].split(']')[1])
             if tlrc[i].split(']')[1] == "":
                 continue
-            if self.stopsignal == True:
-                self.stopsignal = False
+            if Sing.stopsignal == True:
+                Sing.stopsignal = False
                 break
             await app.sendGroupMessage(event.sender.group, [
                 Plain(tlrc[i].split(']')[1])
             ])
-        self.locked = False
+        Sing.locked = False

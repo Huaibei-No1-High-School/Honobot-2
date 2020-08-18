@@ -2,6 +2,7 @@ from mirai import *
 from myemail import email
 
 from HApp import HApp
+from sing import Sing
 
 
 class KWD(HApp):
@@ -31,4 +32,19 @@ class KWD(HApp):
             await app.sendGroupMessage(event.sender.group, [
                 Plain("关闭 星空凛的台灯 成功!")
             ])
+        if "让国歌堕入黑暗" in str:
+            #email()
+            await app.sendGroupMessage(event.sender.group, [
+                Plain("关闭 星空凛的台灯 成功!")
+            ])
+        if str[0:5] == "果果别唱了":
+            if Sing.locked == False:
+                await app.sendGroupMessage(event.sender.group, [
+                    Plain('你耳朵聋了🐎，👴唱啥了')
+                ])
+            else:
+                Sing.stopsignal = True
+                await app.sendGroupMessage(event.sender.group, [
+                    Plain('👴不唱了')
+                ])
         print(event.messageChain)
