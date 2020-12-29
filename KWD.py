@@ -1,6 +1,6 @@
 from mirai import *
 from myemail import email
-
+import random
 from HApp import HApp
 from sing import Sing
 
@@ -28,16 +28,7 @@ class KWD(HApp):
                 At(target=3504879459),
                 At(target=764806602),
             ])
-        if "让国歌堕入黑暗" in str:
-            #email()
-            await app.sendGroupMessage(event.sender.group, [
-                Plain("关闭 星空凛的台灯 成功!")
-            ])
-        if "让国歌堕入黑暗" in str:
-            #email()
-            await app.sendGroupMessage(event.sender.group, [
-                Plain("关闭 星空凛的台灯 成功!")
-            ])
+
         if str[0:5] == "果果别唱了":
             if Sing.locked == False:
                 await app.sendGroupMessage(event.sender.group, [

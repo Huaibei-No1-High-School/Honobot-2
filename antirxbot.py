@@ -1,5 +1,6 @@
 from HApp import HApp
 from mirai import *
+import random
 
 class antirxbot(HApp):
 	def __init__(self):
@@ -26,4 +27,10 @@ class antirxbot(HApp):
 			tli = list(event.messageChain)[1:]
 			await app.sendGroupMessage(event.sender.group, [
 				Plain("/teach " + tli[0].text[8:])
+			])
+
+		altern = ["太贵了", "太远了", "不好吃", "不想吃", "人太多"]
+		if "恰啥" in str:
+			await app.sendGroupMessage(event.sender.group, [
+				Plain(altern[random.randint(0, 5)])
 			])
