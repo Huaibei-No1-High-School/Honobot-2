@@ -6,7 +6,7 @@ class antirxbot(HApp):
 	def __init__(self):
 		self.white = True
 		self.whitelist = [
-			#337681195,
+			337681195,
 			341475083
 		]
 
@@ -18,7 +18,7 @@ class antirxbot(HApp):
 		print("ininininininininiinninininininininini")
 		str = event.messageChain.toString()
 		print(str[0:7])
-		if str[0:7] == "/teach ":
+		if str[0:7] == "/teach " or str[0:7] == "/force ":
 			tli = list(event.messageChain)[1:]
 			await app.sendGroupMessage(event.sender.group, [
 				Plain("/delete " + tli[0].text[7:])
