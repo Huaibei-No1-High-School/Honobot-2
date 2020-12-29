@@ -12,12 +12,12 @@ class Sing(HApp):
         self.whitelist = [
             776324219,
             341475083,
+            614123891,
         ]
     async def recv(self, app: Mirai, event: GroupMessage):
         if HApp.isblocked(self,event.sender.group.id):
             return
         str = event.messageChain.toString()
-
         if str[0:4] != "果果唱歌":
             return
         if Sing.locked == True:

@@ -22,7 +22,6 @@ def getSongURL(url, songName, singer):
 
 
 def qqMusicMain(search):
-	# search = '鎭嬬埍瑁佸垽'
 	songIDUrl = 'https://c.y.qq.com/soso/fcgi-bin/search_for_qq_cp?_=1592730823167&g_tk=204993107&uin=&format=json&inCharset=utf-8&outCharset=utf-8&notice=0&platform=h5&needNewCode=1&g_tk_new_20200303=204993107&w=' + search + '&zhidaqu=1&catZhida=1&t=0&flag=1&ie=utf-8&sem=1&aggr=0&perpage=20&n=20&p=1&remoteplace=txt.mqq.all'
 	header = {
 		'user-agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_2_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.3 Mobile/15E148 Safari/604.1',

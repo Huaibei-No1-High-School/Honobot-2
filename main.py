@@ -3,6 +3,7 @@ import asyncio
 
 from FDHolder import FDHolder
 from KWD import KWD
+from antirxbot import antirxbot
 from sing import Sing
 from whois import Whois
 
@@ -24,10 +25,12 @@ async def event_gm(app: Mirai, event: GroupMessage):
 
 
 if __name__ == "__main__":
+    print("????")
     AppList.append(FDHolder())
     AppList.append(KWD())
     AppList.append(Whois())
     AppList.append(Sing())
+    AppList.append(antirxbot())
     miraibot.run()
 
 

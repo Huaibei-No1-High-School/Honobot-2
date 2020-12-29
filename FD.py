@@ -10,6 +10,7 @@ class FD():
         self.la = []
 
     async def recv(self, app: Mirai, event: GroupMessage):
+        print("?")
         self.la.append(event.messageChain)
         if len(self.la) >= 3 and self.la[len(self.la) - 2].toString() == self.la[len(self.la) - 1].toString() and self.la[len(self.la) - 2].toString() == self.la[len(self.la) - 3].toString():
             return
