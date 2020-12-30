@@ -6,6 +6,7 @@ from KWD import KWD
 from antirxbot import antirxbot
 from sing import Sing
 from whois import Whois
+from gayhub import Gay
 
 qq = 3185672511  # 字段 qq 的值
 authKey = '123456987'  # 字段 authKey 的值
@@ -32,4 +33,5 @@ if __name__ == "__main__":
     AppList.append(Whois())
     AppList.append(Sing())
     AppList.append(antirxbot())
+    AppList.append(Gay())
     miraibot.run()

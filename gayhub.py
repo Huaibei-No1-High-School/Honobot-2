@@ -4,6 +4,7 @@ from mirai import *
 
 class Gay(object):
     def __init__(self):
+        print("Plugin (gayhub) is Loaded")
         self.__username = ''
         self.__gayURL = 'https://api.github.com/users/{}/repos'.format(self.__username)
         self.__result = ''
