@@ -7,14 +7,13 @@ class Gay(HApp):
     def __init__(self):
         print("Plugin (gayhub) is Loaded")
         self.__username = ''
-        self.__gayURL = 'https://api.github.com/users/{}/repos'.format(self.__username)
+        self.__gayURL = ''
         self.__result = ''
         self.__msg = ''
-        self.whiteList = [
+        self.whitelist = [
             776324219,
             341475083,
         ]
-
 
     def __makeData(self):
         try:
@@ -40,7 +39,7 @@ class Gay(HApp):
                         i['stargazers_count']) + " | 仓库描述: " + str(description) + '\n'
                     a += 1
             except TypeError as ee:
-                self.__msg = str('Not Found User!')
+                self.__msg = str('Not Found User!' + self.__username)
 
         except TimeoutError as e:
             self.__msg = str(e)
@@ -48,14 +47,15 @@ class Gay(HApp):
     async def recv(self, app: Mirai, event: GroupMessage):
         if HApp.isblocked(self, event.sender.group.id):
             return
-        resp = event.messageChain.to_string()
+        resp = event.messageChain.toString()
         if 'github' in resp:
-            self.__username = resp.strip().replace('github', '')
-        self.__gayURL = 'https://api.github.com/users/{}/repos'.format(self.__username)
-        self.__makeData()
-        await app.sendGroupMessage(event.sender.group, [
-            Plain(self.__msg + '...')
-        ])
+            self.__msg = ''
+            self.__username = resp.replace('github', '').strip()
+            self.__gayURL = 'https://api.github.com/users/{}/repos'.format(self.__username)
+            self.__makeData()
+            await app.sendGroupMessage(event.sender.group,
+                                       [Plain(self.__msg + '...')])
+
 
 
 if __name__ == '__main__':
