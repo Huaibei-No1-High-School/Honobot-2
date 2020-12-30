@@ -23,11 +23,6 @@ class antirxbot(HApp):
 			await app.sendGroupMessage(event.sender.group, [
 				Plain("/delete " + tli[0].text[7:])
 			])
-		elif str[0:8] == "/delete ":
-			tli = list(event.messageChain)[1:]
-			await app.sendGroupMessage(event.sender.group, [
-				Plain("/teach " + tli[0].text[8:])
-			])
 
 		altern = ["太贵了", "太远了", "不好吃", "不想吃", "人太多"]
 		if "恰啥" in str:
