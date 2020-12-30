@@ -14,14 +14,15 @@ mirai_api_http_locate = 'vpn.orangecheers.top:23333/'  # httpapi所在主机的�
 miraibot = Mirai(f"mirai://{mirai_api_http_locate}?authKey={authKey}&qq={qq}", websocket=True)
 
 AppList = []
+
+
 @miraibot.receiver("GroupMessage")
 async def event_gm(app: Mirai, event: GroupMessage):
     print(event.sender.group.id)
     global AppList
     for hoapp in AppList:
-        await hoapp.recv(app,event)
+        await hoapp.recv(app, event)
     pass
-
 
 
 if __name__ == "__main__":
@@ -32,8 +33,3 @@ if __name__ == "__main__":
     AppList.append(Sing())
     AppList.append(antirxbot())
     miraibot.run()
-
-
-
-
-
