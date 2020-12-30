@@ -46,7 +46,7 @@ class Gay(HApp):
             self.__msg = str(e)
 
     async def recv(self, app: Mirai, event: GroupMessage):
-        if HApp.isblocked():
+        if HApp.isblocked(self, event.sender.group.id):
             return
         resp = event.messageChain.to_string()
         if 'github' in resp:
