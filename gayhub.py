@@ -1,14 +1,19 @@
 import httpx as requests
 from mirai import *
+from HApp import HApp
 
 
-class Gay(object):
+class Gay(HApp):
     def __init__(self):
         print("Plugin (gayhub) is Loaded")
         self.__username = ''
         self.__gayURL = 'https://api.github.com/users/{}/repos'.format(self.__username)
         self.__result = ''
         self.__msg = ''
+        self.whiteList = [
+            776324219,
+            341475083,
+        ]
 
 
     def __makeData(self):
@@ -41,6 +46,8 @@ class Gay(object):
             self.__msg = str(e)
 
     async def recv(self, app: Mirai, event: GroupMessage):
+        if HApp.isblocked():
+            return
         resp = event.messageChain.to_string()
         if 'github' in resp:
             self.__username = resp.strip().replace('github', '')

@@ -1,5 +1,4 @@
 from mirai import *
-from myemail import email
 import random
 from HApp import HApp
 from sing import Sing
